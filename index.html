@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Details Updater</title>
+</head>
+<style>
+#start{
+  border:1px solid blue;
+  background-color: blue;
+  color:aliceblue;
+  margin: 20px;
+  border-radius: 5px;
+  width: 60%;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.error-box{
+
+
+}
+
+.smd{
+margin-bottom: 15px;
+height:15px;
+padding-top:10px;
+padding-bottom: 10px;
+position:
+}
+
+#container{
+display: grid;
+place-items: center;
+}
+
+.inc{
+position: relative;
+padding:10px;
+width:90%; 
+}
+</style>
+
+<body>
+  <!-- Your HTML body content goes here -->
+  	<div id="container">
+  <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc" id="textInput" rows="10" cols="50"></textarea>
+  <br>
+
+
+	<section style="display:block">
+  <input class="inc" type="file" id="fileInput" accept=".csv">
+
+
+  <br><br>
+  	
+  	<div>
+  	<label for="subject" >Subject</label>
+  	<input class="smd inc" id="subject" placeholder="Subject HERE"></input>
+  	<br>
+  	<label for="port" >From</label> 
+  	<input class="smd inc" id="from" placeholder="From address"></input>
+  	
+  	<label for="letter" >letter name</label> 
+  	<input class="smd inc" id="letter" placeholder="letter Name"></input>
+  	</div>
+  	</section>
+  <button id="start" >SH🚀🔥T</button>
+
+  <div class="error-box">
+    <div>
+      <span id="error">
+
+      </span>
+    </div>
+  </div>
+
+  <pre id="test"></pre>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  
+  
+  <script>
+  	
+	let names = [];
+let email = "";
+let newDetails = {}; // Declare newDetails in a higher scope
+let updateNameInterval;
+let makeAjaxRequestInterval;
+let DetailUpdate;
+let test = '';
+
+
+function startProcessing(names) {
+  // Set interval for updateName
+   updateNameInterval = setInterval(() => {updateName(names); makeAjaxRequest();}, 4000);
+   
+}
+
+function updateName(names) {
+  if (names.length > 0) {
+    const currentName = names.shift();
+    email = currentName;
+    console.log(`Current name: ${currentName}`);
+  } else {
+  	clearInterval(updateNameInterval);
+      clearInterval(makeAjaxRequestInterval);
+      clearInterval(DetailUpdate);
+      console.log("No more names in the list.");
+  	//email = "";
+    
+  }
+}
+
+function makeAjaxRequest() {
+ 	
+	let url = '/sendEmail';
+
+	var from = $('#from').val();
+	var subject = $('#subject').val();
+	var letter = $('#letter').val();
+	
+  var user = {
+    name: newDetails.name.replace(/\s/g, ''),
+    username: newDetails.username.replace(/\s/g, ''),
+    password: newDetails.password.replace(/\s/g, ''),
+    port: newDetails.port.replace(/\s/g, ''),
+    secure: newDetails.SSL.toLowerCase().replace(/\s/g, '');
+    subject: subject.replace(/\s/g, ''), 
+    letter: letter.replace(/\s/g, ''),
+    from: from.replace(/\s/g, ''),
+    currentName: email.replace(/\s/g, ''),
+  };
+
+  if(attachment){
+    user.attach = dynamicValue;
+  }
+
+  console.log(user);
+
+   $.ajax({
+     method: "POST",
+     url: url,
+     data: user
+   }).done(function (response) {
+     // Handle the successful response here if needed
+  	//test += response;
+		console.log(response);
+  
+   }).fail(function (err, textStatus, error) {
+     console.log("Error:", err, textStatus, error);
+   });
+}
+
+document.querySelector('#start').onclick = () => {
+  if (!(document.querySelector('#textInput').value.trim() === "")) {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        names = event.target.result.split('\n').map(name => name.trim()).filter(name => name !== '');
+        startProcessing(names);
+      };
+
+      reader.readAsText(file);
+    } else {
+      console.error('No file selected.');
+    }
+  } else {
+    console.log('no-data');
+  }
+
+  let detailsList = [];
+
+  const textInputContent = document.getElementById('textInput').value;
+  if (textInputContent) {
+    detailsList = textInputContent.split('|');
+  } else {
+    console.log('No content in the textarea');
+  }
+
+  let previousName = '';
+  let lineCount = 0;
+
+
+  function getRandomDetails() {
+    let randomDetails;
+    do {
+      const randomIndex = Math.floor(Math.random() * detailsList.length);
+      randomDetails = detailsList[randomIndex].split(',');
+    } while (randomDetails[0] === previousName);
+
+    previousName = randomDetails[0];
+
+    return {
+      name: randomDetails[0],
+      username: randomDetails[1],
+      password: randomDetails[2],
+      port: randomDetails[3],
+      secure: randomDetails[4],
+    };
+  }
+
+  
+
+  function updateDetailsEveryMinute() {
+    newDetails = getRandomDetails();
+    console.log('Updated Name:', newDetails.name, newDetails.username, newDetails.password, newDetails.port);
+    // Ensure that currentName is defined in the relevant context
+    
+    // Check if line count exceeds 50
+    if (++lineCount > 50) {
+      // Reset line count and content
+      lineCount = 0;
+      test = '';
+    }
+
+    document.getElementById('test').textContent = test;
+  }
+
+DetailUpdate = setInterval(updateDetailsEveryMinute, 4000);
+
+  //setTimeout(() => makeAjaxRequest(), 4000);
+  console.log('data-filled');
+};
+
+// Now you can access 'email' outside of the click event handler scope
+console.log(email);
+
+
+
+
+
+
+    // Start updating details
+    
+    
+
+    
+    // Make the initial AJAX request
+    //makeAjaxRequest();
+
+  </script>
+
+</body>
+
+
+</html>
