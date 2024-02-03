@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Details Updater</title>
+</head>
+<style>
+#start{
+  border:1px solid blue;
+  background-color: blue;
+  color:aliceblue;
+  margin: 20px;
+  border-radius: 5px;
+  width: 60%;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.error-box{
+
+
+}
+
+.smd{
+margin-bottom: 15px;
+height:15px;
+padding-top:10px;
+padding-bottom: 10px;
+position:
+}
+
+#container{
+display: grid;
+place-items: center;
+}
+
+.inc{
+position: relative;
+padding:10px;
+width:90%; 
+}
+
+.stop{
+ background-color: rgb(233, 14, 14);
+ height: 30px;
+ width: 15%;
+
+ justify-content: center;
+ align-items: center;
+ color: antiquewhite;
+ border: solid 1px red ;
+ border-radius: 8px;
+}
+
+
+  #leftSlide {
+    display: flex;
+    position: fixed;
+    height: 100%;
+    margin-left: 50px;
+    background-color: rgb(252, 251, 251);
+    right: 0;
+    border-left: 2px solid black;
+    z-index: 100000;
+    top: 0px;
+    bottom: 0px;
+    overflow:auto;
+    width: 0%; 
+    transition: 0.5s;
+  }
+
+
+  #leftSlide.expanded {
+    width: 40%; /* Adjust the target width as needed */
+}
+
+#x{
+  
+  font-size: 30px;
+  display: inline-block;
+  transform: rotate(45deg);
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+#x-back{
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  background-color: rgb(146, 146, 145);
+  border-radius: 50%;
+  border-width :1px;
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  top:0;
+  left: 80;
+ 
+}
+
+.triangle {
+  rotate: -90deg;
+    display: flex;
+    top: 10;
+    bottom: 50%;
+    right: 0;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #3498db;
+}
+
+.triangle.hide {
+  transform: rotate(180deg);
+  margin-right: 40%;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 767px) {
+  .triangle.hide {
+  margin-right: 100%;
+}
+#leftSlide.expanded {
+    width: 100%; /* Adjust the target width as needed */
+}
+}
+
+</style>
+
+<body>
+  <!-- Your HTML body content goes here -->
+  	<div id="container">
+  <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc inputs" id="textInput" rows="10" cols="50"></textarea>
+  <br>
+
+  <textarea placeholder="html content" class="inc inputs" id="htmlContent" rows="10" col="50"></textarea>
+   <br>
+	<section style="display:block">
+  <input class="inc inputs" type="file" id="fileInput" accept=".csv">
+  <br><br>
+  <div style="display: flex; border: 1px solid black; align-items: center; justify-content: center; text-align: center;">
+
+  <label class="" for="attach" style="font-size: 20px; font-weight: 80; padding:0; ">
+      +
+    <input type="file" class="inputs" id="attach" accept="*" style="display:none;" > 
+    <span id="att-text" style="white-space: nowrap; font-size: 14px;">Add Attachment Here</span>
+</label>
+
+</div>
+
+  <br><br>
+  	
+  	<div>
+  	<label for="subject" >Subject</label>
+  	<input class="smd inc inputs" id="subject" placeholder="Subject HERE"></input>
+  	<br>
+    <label for="port" >From</label> 
+  	<input class="smd inc inputs" id="from" placeholder="From address"></input>
+  	
+  	<!--label for="letter" >letter name</label> 
+  	<input class="smd inc inputs" id="letter" placeholder="letter Name"></input-->
+  	</div>
+  	</section>
+
+  <div id="smallbut">
+    <div class="triangle">
+    </div>
+  </div>
+    
+    <div id="leftSlide" style="height: 100%;">
+      <div style="position: relative;">
+        <div id="abs" style="position: absolute;">
+          <div id="x-back" style="">
+            <div id="x" class="close">+</div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <div style="margin-left: 10px;">
+          <br><br>
+          <pre id="test"></pre>
+        </div>
+      </div>
+    </div>
+    
+
+   
+    <button id="stop" class="stop" style=" display: none;">
+      <div>
+        <span style="text-align: center;">
+          STOP
+        </span>
+      </div>
+    </button>
+
+  <button id="start" >SH🚀🔥T</button>
+ 
+
+  
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  
+  
+ <script>
+  let names = [];
+  let email = "";
+  let newDetails = {};
+  let emailNames = false;
+  let test = '';
+  let finished = true;
+
+  function startProcessing() {
+    const textInput = document.getElementById('textInput');
+    const filled = document.getElementsByClassName("inputs");
+    console.log(filled);
+    let allInputsFilled = false;  // Initialize to false
+    let iterationNumber = names.length + 1;
+    
+    for (const fill of filled) {
+      if (fill.value.trim() === "") {
+        allInputsFilled = false;
+        emailNames = false;
+        console.log('emailNames is not true');
+        console.log(`all input is ${allInputsFilled}`);
+      } else {
+        allInputsFilled = true;
+        emailNames = true;
+        console.log('emailNames is true');
+        console.log(`all input is ${allInputsFilled}`);
+      }
+    }
+
+    const processNext = () => {
+  if (names.length > 0) {
+    const currentName = names.shift();
+    email = currentName;
+    console.log(`Iteration ${iterationNumber}: Current name: ${currentName}`);
+    updateDetailsEveryMinute();
+    document.getElementById('leftSlide').classList.toggle('expanded');
+     makeAjaxRequest()
+      .then(() => processNext())
+      .catch((error) => {
+        console.error('Error processing AJAX request:', error);
+        // Continue processing next item even if the AJAX request fails
+         processNext();
+      });
+  } else {
+    console.log("List ended");
+    console.log(emailNames);
+    finished = true;
+    checkFinished();
+  }
+};
+
+
+    if (allInputsFilled && emailNames) {
+      console.log('Data filled.');
+      processNext();
+    } else {
+      console.log("Outside the loop. Conditions not met. No processing performed.");
+    }
+  }
+
+  function makeAjaxRequest() {
+    const url = '/sendEmail';
+
+    const from = $('#from').val();
+    const subject = $('#subject').val();
+    const letter = $('#letter').val();
+
+    let user = {
+      name: newDetails.name.replace(/\s/g, ''),
+      username: newDetails.username.replace(/\s/g, ''),
+      password: newDetails.password.replace(/\s/g, ''),
+      port: newDetails.port.replace(/\s/g, ''),
+      secure: newDetails.secure.toLowerCase().replace(/\s/g, ''),
+      subject: subject.replace(/\s/g, ''),
+      from: from.replace(/\s/g, ''),
+      currentName: email.replace(/\s/g, ''),
+      htmlContent: document.getElementById('htmlContent').value
+    };
+    
+    const attachfile = document.getElementById('attach');
+    const selectedFile = attachfile.files[0];
+
+    const send = () => {
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          method: "POST",
+          url: url,
+          data: user
+        }).done(function (response) {
+          if (response && response.success) {
+            document.getElementById('test').textContent += response + '\n';
+            console.log(response);
+            emailNames = true;
+            resolve();
+            processNext();
+          } else {
+            document.getElementById('test').textContent += response + '\n';
+            console.log(response);
+            emailNames = false;
+            //reject(response);
+            processNext();
+          }
+        }).fail(function (err, textStatus, error) {
+          console.log("Error:", err, textStatus, error);
+          emailNames = true;
+          reject(err);
+        });
+      });
+    };
+
+    const handleFile = () => {
+      if (selectedFile) {
+  const reader = new FileReader();
+  console.log(selectedFile);
+
+  reader.onload = function (event) {
+    user.attachmentName = {
+      name: selectedFile.name,
+      type: selectedFile.type,
+      content: event.target.result
+    };
+
+    console.log(user);
+
+    // Continue with your AJAX request here
+    return handleFile().then(() => send());
+  };
+
+  reader.readAsDataURL(selectedFile);
+}else{
+  return handleFile().then(() => send());
+}
+    };
+
+  }
+
+  document.querySelector('#start').addEventListener('click', () => {
+    if (!(textInput.value.trim() === "")) {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function (event) {
+          names = event.target.result.split('\n').map(name => name.trim()).filter(name => name !== '');
+          console.log(names.length +' the names numbers');
+          startProcessing();
+        };
+
+        reader.readAsText(file);
+      } else {
+        console.error('No file selected.');
+      }
+    } else {
+      console.log('No data provided.');
+    }
+  });
+
+  function getRandomDetails() {
+  const detailsList = document.getElementById('textInput').value.split('|');
+  let previousName = '';
+
+    let randomDetails;
+    do {
+      const randomIndex = Math.floor(Math.random() * detailsList.length);
+      randomDetails = detailsList[randomIndex].split(',');
+    } while (randomDetails[0] === previousName);
+
+    previousName = randomDetails[0];
+
+    return {
+      name: randomDetails[0],
+      username: randomDetails[1],
+      password: randomDetails[2],
+      port: randomDetails[3],
+      secure: randomDetails[4],
+    };
+  }
+
+
+  function updateDetailsEveryMinute() {
+  let lineCount = 0;
+    newDetails = getRandomDetails();
+    console.log('Updated Name:', newDetails.name, newDetails.username, newDetails.password, newDetails.port);
+      if (++lineCount > 50) {
+      // Reset line count and content
+      lineCount = 0;
+      document.getElementById('test').textContent = '';
+    }
+  }
+
+
+</script>
+
+<script>
+  let showBut = true;
+
+  document.querySelector('#stop').onclick = () => {
+  emailNames = false;
+  console.log(emailNames);
+}
+
+
+document.querySelector('#x').onclick = () => {
+  document.getElementById('leftSlide').classList.toggle('expanded');
+  document.querySelector('.triangle').classList.remove('hide');
+  showBut = !showBut;
+}
+
+
+document.querySelector('.triangle').onclick = () => {
+  let triangle = document.querySelector('.triangle');
+  document.getElementById('leftSlide').classList.toggle('expanded');
+  console.log(showBut);
+  if (showBut) {
+    triangle.classList.add('hide');
+    
+  } else {
+    triangle.classList.remove('hide');
+  }
+  showBut = !showBut;
+};
+
+
+  const checkFinished = ()=>{
+    if(finished){
+      console.log(bad);
+    }
+    else{
+      document.getElementById("stop").style.display = 'flex';
+      console.log(good);
+    }
+      
+  }
+
+document.getElementById('attach').addEventListener("change", ()=>{
+  const checkfilename = event.target;
+  if (checkfilename.files.length > 0) {
+        const selectedFile = checkfilename.files[0];
+        document.getElementById('att-text').textContent = selectedFile.name;
+    }else{
+      document.getElementById('att-text').textContent = '';
+    }
+    });
+
+</script>
+</body>
+
+
+</html>
