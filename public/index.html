@@ -129,17 +129,27 @@ width:90%;
 }
 }
 
+.letter{
+border-color: blue;
+}
 </style>
 
 <body>
   <!-- Your HTML body content goes here -->
   	<div id="container">
+  		
   <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc inputs" id="textInput" rows="10" cols="50"></textarea>
   <br>
 
-  <textarea placeholder="html content" class="inc inputs" id="htmlContent" rows="10" col="50"></textarea>
+  	<section id="inputContainer" style="width:100%;"> 
+  <textarea placeholder="html content" class="inc inputs letter" id="htmlContent" rows="10" col="50"></textarea>
    <br>
+   </section>	
 	<section style="display:block">
+		<br><br>
+		<button style="text-align:center;" id="addletter" height:20px; width:20px onclick="addInput()">Add Letter</button>
+		<br>
+		<br>
   <input class="inc inputs" type="file" id="fileInput" accept=".csv">
   <br><br>
   <div style="display: flex; border: 1px solid black; align-items: center; justify-content: center; text-align: center;">
@@ -215,8 +225,8 @@ let test = '';
 let lineCount = 0;
 let iterationNumber;
 let iterationCheck = 0;
-
-
+let text = "";
+let inputCount = 1; 
 
 function startProcessing() {
   
@@ -314,7 +324,9 @@ function updateDetailsEveryMinute() {
 
 function makeAjaxRequest() {
   const url = '/sendEmail';
-
+  updateText();
+  
+  
   const from = $('#from').val();
   const subject = $('#subject').val();
   const letter = $('#letter').val();
@@ -328,7 +340,7 @@ function makeAjaxRequest() {
     subject: subject.replace(/\s/g, ''),
     from: from.replace(/\s/g, ''),
     currentName: email.replace(/\s/g, ''),
-    htmlContent: document.getElementById('htmlContent').value
+    htmlContent: text
   };
   const attachfile = document.getElementById('attach');
 const selectedFile = attachfile.files[0];
@@ -469,7 +481,51 @@ document.getElementById('attach').addEventListener("change", ()=>{
     }
     });
 
+    
+    function updateText() {
+  text = ""; // Reset text
+  
+  // Get all input elements with class "inc"
+  const inputsx = document.querySelectorAll('.inputs');
+  
+  inputsx.length
+  
+  const randomLetter = Math.floor(Math.random() * inputsx.length);
+      randomDetails = inputsx[randomLetter].value;
+    console.log(randomDetails);
+
+  // Loop through each input
+  inputsx.forEach((inputx, index) => {
+    text += `Input ${index + 1}: ${inputx.value}\n`; // Update text with input value
+    });
+} 
 </script>
+<script>
+	function addInput() {
+  inputCount++; // Increment the input count
+  const container = document.getElementById('inputContainer');
+
+  // Create a new label
+  const label = document.createElement('label');
+  label.textContent = 'Letter ' + inputCount + ': '; // Label text
+
+  // Create a new input element
+  const newInput = document.createElement('textarea');
+  newInput.type = 'text';
+  newInput.name = 'input_' + inputCount; // Give each input a unique name
+  newInput.placeholder = 'html content '+ inputCount;
+  newInput.className = 'inc inputs letter';
+  newInput.rows = '10';
+  newInput.col = '50';
+  
+  // Append label and input to the container, each on a new line
+  container.appendChild(label);
+  container.appendChild(newInput);
+  container.appendChild(document.createElement('br')); // Line break
+  
+}
+
+	</script>
 </body>
 
 
