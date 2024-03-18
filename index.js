@@ -23,6 +23,8 @@ app.post('/sendEmail', async (req, res) => {
    // console.log(req.body);
     
     const { name, port, username, password, currentName, subject, htmlContent, secure, from, attachmentName } = req.body;
+  console.log(password);
+    console.log(name);
     try {
         // Get SMTP details from the POST request
        
