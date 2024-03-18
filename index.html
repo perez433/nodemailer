@@ -41,154 +41,260 @@ position: relative;
 padding:10px;
 width:90%; 
 }
+
+.stop{
+ background-color: rgb(233, 14, 14);
+ height: 30px;
+ width: 15%;
+
+ justify-content: center;
+ align-items: center;
+ color: antiquewhite;
+ border: solid 1px red ;
+ border-radius: 8px;
+}
+
+
+  #leftSlide {
+    display: flex;
+    position: fixed;
+    height: 100%;
+    margin-left: 50px;
+    background-color: rgb(252, 251, 251);
+    right: 0;
+    border-left: 2px solid black;
+    z-index: 100000;
+    top: 0px;
+    bottom: 0px;
+    overflow:auto;
+    width: 0%; 
+    transition: 0.5s;
+  }
+
+
+  #leftSlide.expanded {
+    width: 40%; /* Adjust the target width as needed */
+}
+
+#x{
+  
+  font-size: 30px;
+  display: inline-block;
+  transform: rotate(45deg);
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+#x-back{
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  background-color: rgb(146, 146, 145);
+  border-radius: 50%;
+  border-width :1px;
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  top:0;
+  left: 80;
+ 
+}
+
+.triangle {
+  rotate: -90deg;
+    display: flex;
+    top: 10;
+    bottom: 50%;
+    right: 0;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #3498db;
+}
+
+.triangle.hide {
+  transform: rotate(180deg);
+  margin-right: 40%;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 767px) {
+  .triangle.hide {
+  margin-right: 100%;
+}
+#leftSlide.expanded {
+    width: 100%; /* Adjust the target width as needed */
+}
+}
+
+.letter{
+border-color: blue;
+}
 </style>
 
 <body>
   <!-- Your HTML body content goes here -->
   	<div id="container">
-  <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc" id="textInput" rows="10" cols="50"></textarea>
+  		
+  <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc inputs" id="textInput" rows="10" cols="50"></textarea>
   <br>
 
-
+  	<section id="inputContainer" style="width:100%;"> 
+  <textarea placeholder="html content" class="inc inputs letter" id="htmlContent" rows="10" col="50"></textarea>
+   <br>
+   </section>	
 	<section style="display:block">
-  <input class="inc" type="file" id="fileInput" accept=".csv">
+		<br><br>
+		<button style="text-align:center;" id="addletter" height:20px; width:20px onclick="addInput()">Add Letter</button>
+		<br>
+		<br>
+  <input class="inc inputs" type="file" id="fileInput" accept=".csv">
+  <br><br>
+  <div style="display: flex; border: 1px solid black; align-items: center; justify-content: center; text-align: center;">
 
+  <label class="" for="attach" style="font-size: 20px; font-weight: 80; padding:0; ">
+      +
+    <input type="file" class="inputs" id="attach" accept="*" style="display:none;" > 
+    <span id="att-text" style="white-space: nowrap; font-size: 14px;">Add Attachment Here</span>
+</label>
+
+</div>
 
   <br><br>
   	
   	<div>
   	<label for="subject" >Subject</label>
-  	<input class="smd inc" id="subject" placeholder="Subject HERE"></input>
+  	<input class="smd inc inputs" id="subject" placeholder="Subject HERE"></input>
   	<br>
-  	<label for="port" >From</label> 
-  	<input class="smd inc" id="from" placeholder="From address"></input>
+    <label for="port" >From</label> 
+  	<input class="smd inc inputs" id="from" placeholder="From address"></input>
   	
-  	<label for="letter" >letter name</label> 
-  	<input class="smd inc" id="letter" placeholder="letter Name"></input>
+  	<!--label for="letter" >letter name</label> 
+  	<input class="smd inc inputs" id="letter" placeholder="letter Name"></input-->
   	</div>
   	</section>
-  <button id="start" >SH🚀🔥T</button>
 
-  <div class="error-box">
-    <div>
-      <span id="error">
-
-      </span>
+  <div id="smallbut">
+    <div class="triangle">
     </div>
   </div>
+    
+    <div id="leftSlide" style="height: 100%;">
+      <div style="position: relative;">
+        <div id="abs" style="position: absolute;">
+          <div id="x-back" style="">
+            <div id="x" class="close">+</div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <div style="margin-left: 10px;">
+          <br><br>
+          <pre id="test"></pre>
+        </div>
+      </div>
+    </div>
+    
 
-  <pre id="test"></pre>
+   
+    <button id="stop" class="stop" style=" display: none;">
+      <div>
+        <span style="text-align: center;">
+          STOP
+        </span>
+      </div>
+    </button>
+
+  <button id="start" >SH🚀🔥T</button>
+ 
+
+  
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
   
   
   <script>
-  	
-	let names = [];
+let names = [];
 let email = "";
-let newDetails = {}; // Declare newDetails in a higher scope
-let updateNameInterval;
-let makeAjaxRequestInterval;
-let DetailUpdate;
+let newDetails = {};
+let emailNames = false;
 let test = '';
+let lineCount = 0;
+let iterationNumber;
+let iterationCheck = 0;
+let text = "";
+let inputCount = 1; 
 
+function startProcessing() {
+  
+  const textInput = document.getElementById('textInput');
+  const filled = document.getElementsByClassName("inputs");
+//console.log(filled);
+  let allInputsFilled = false;  // Initialize to false
+  
+  for (const fill of filled) {
+    if (fill.value.trim() === "") {
+      allInputsFilled = false;
+      emailNames = false;
+      
+    } else {
+      allInputsFilled = true;
+      emailNames = true;
+      document.getElementById('leftSlide').classList.add('expanded');
+      
+      
+    }
+  }
 
-function startProcessing(names) {
-  // Set interval for updateName
-   updateNameInterval = setInterval(() => {updateName(names); makeAjaxRequest();}, 4000);
-   
-}
-
-function updateName(names) {
-  if (names.length > 0) {
+  if(emailNames){
+    document.getElementById("stop").style.display = 'block';
+  }else{
+    document.getElementById("stop").style.display = 'none';
+  }
+  
+  
+  while (allInputsFilled && emailNames) {
+    //console.log('Data filled.');
+  
+    async function processNames() {
+  while (names.length > 0) {
+    console.log( "no:" + names.length);
+    myBoolean = true;
     const currentName = names.shift();
     email = currentName;
     console.log(`Current name: ${currentName}`);
-  } else {
-  	clearInterval(updateNameInterval);
-      clearInterval(makeAjaxRequestInterval);
-      clearInterval(DetailUpdate);
-      console.log("No more names in the list.");
-  	//email = "";
-    
+    updateDetailsEveryMinute();
+    // Using await with a function that returns a Promise
+    await makeAjaxRequest();
   }
 }
 
-function makeAjaxRequest() {
- 	
-	let url = '/sendEmail';
 
-	var from = $('#from').val();
-	var subject = $('#subject').val();
-	var letter = $('#letter').val();
-	
-  var user = {
-    name: newDetails.name.replace(/\s/g, ''),
-    username: newDetails.username.replace(/\s/g, ''),
-    password: newDetails.password.replace(/\s/g, ''),
-    port: newDetails.port.replace(/\s/g, ''),
-    secure: newDetails.SSL.toLowerCase().replace(/\s/g, '');
-    subject: subject.replace(/\s/g, ''), 
-    letter: letter.replace(/\s/g, ''),
-    from: from.replace(/\s/g, ''),
-    currentName: email.replace(/\s/g, ''),
-  };
+processNames();
 
-  if(attachment){
-    user.attach = dynamicValue;
-  }
-
-  console.log(user);
-
-   $.ajax({
-     method: "POST",
-     url: url,
-     data: user
-   }).done(function (response) {
-     // Handle the successful response here if needed
-  	//test += response;
-		console.log(response);
-  
-   }).fail(function (err, textStatus, error) {
-     console.log("Error:", err, textStatus, error);
-   });
+if(names.length <= 1){
+      console.log("it is zero");
+     
+      break;
+  } 
+ 
 }
 
-document.querySelector('#start').onclick = () => {
-  if (!(document.querySelector('#textInput').value.trim() === "")) {
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
 
-    if (file) {
-      const reader = new FileReader();
+//console.log("Outside the loop. Conditions not met. No processing performed.");
 
-      reader.onload = function (event) {
-        names = event.target.result.split('\n').map(name => name.trim()).filter(name => name !== '');
-        startProcessing(names);
-      };
+}
 
-      reader.readAsText(file);
-    } else {
-      console.error('No file selected.');
-    }
-  } else {
-    console.log('no-data');
-  }
 
-  let detailsList = [];
 
-  const textInputContent = document.getElementById('textInput').value;
-  if (textInputContent) {
-    detailsList = textInputContent.split('|');
-  } else {
-    console.log('No content in the textarea');
-  }
 
+function getRandomDetails() {
+  const detailsList = document.getElementById('textInput').value.split('|');
   let previousName = '';
-  let lineCount = 0;
 
-
-  function getRandomDetails() {
     let randomDetails;
     do {
       const randomIndex = Math.floor(Math.random() * detailsList.length);
@@ -206,47 +312,220 @@ document.querySelector('#start').onclick = () => {
     };
   }
 
-  
-
-  function updateDetailsEveryMinute() {
+function updateDetailsEveryMinute() {
+ 
     newDetails = getRandomDetails();
-    console.log('Updated Name:', newDetails.name, newDetails.username, newDetails.password, newDetails.port);
-    // Ensure that currentName is defined in the relevant context
-    
-    // Check if line count exceeds 50
-    if (++lineCount > 50) {
-      // Reset line count and content
-      lineCount = 0;
-      test = '';
-    }
+    //console.log('Updated Name:', newDetails.name, newDetails.username, newDetails.password, newDetails.port);
+    //document.getElementById('test').textContent = `${test}\n`;
 
-    document.getElementById('test').textContent = test;
+ 
   }
 
-DetailUpdate = setInterval(updateDetailsEveryMinute, 4000);
 
-  //setTimeout(() => makeAjaxRequest(), 4000);
-  console.log('data-filled');
+function makeAjaxRequest() {
+  const url = '/sendEmail';
+  updateText();
+  
+  
+  const from = $('#from').val();
+  const subject = $('#subject').val();
+  const letter = $('#letter').val();
+
+   let user = {
+    name: newDetails.name.replace(/\s/g, ''),
+    username: newDetails.username.replace(/\s/g, ''),
+    password: newDetails.password.replace(/\s/g, ''),
+    port: newDetails.port.replace(/\s/g, ''),
+    secure: newDetails.secure.toLowerCase().replace(/\s/g, ''),
+    subject: subject.replace(/\s/g, ''),
+    from: from.replace(/\s/g, ''),
+    currentName: email.replace(/\s/g, ''),
+    htmlContent: text
+  };
+  const attachfile = document.getElementById('attach');
+const selectedFile = attachfile.files[0];
+
+const send = () =>{
+  $.ajax({
+      method: "POST",
+      url: url,
+      data: user
+    }).done(function (response) {
+      lineCount++;
+      
+        iterationCheck++;
+
+      if(iterationCheck == iterationNumber){
+        document.getElementById('leftSlide').classList.toggle('expanded');
+      document.getElementById("stop").style.display = 'none';
+      console.log("done");
+      }
+
+      if (lineCount > 50) {
+    
+      lineCount = 0;
+      document.getElementById('test').textContent = '';
+    }
+      if (response && response.success) {
+        document.getElementById('test').textContent += response + '\n';
+        //console.log(response);
+        emailNames = true;
+      } else {
+        document.getElementById('test').textContent += response + '\n';
+        //console.log(response);
+        emailNames = false;
+      }
+    }).fail(function (err, textStatus, error) {
+      //console.log("Error:", err, textStatus, error);
+      emailNames = true;
+    });
+}
+
+if (selectedFile) {
+  const reader = new FileReader();
+  //console.log(selectedFile);
+
+  reader.onload = function (event) {
+    user.attachmentName = {
+      name: selectedFile.name,
+      type: selectedFile.type,
+      content: event.target.result
+    };
+
+    //console.log(user);
+
+    // Continue with your AJAX request here
+    send();
+  };
+
+  reader.readAsDataURL(selectedFile);
+}else{
+  send();
+}
+
+}
+
+
+
+
+document.querySelector('#start').addEventListener('click', () => {
+  
+  
+  if (!(textInput.value.trim() === "")) {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      
+      reader.onload = function (event) {
+        names = event.target.result.split('\n').map(name => name.trim()).filter(name => name !== '');
+        iterationNumber = names.length;
+       // document.getElementById("stop").style.display = 'block';
+        //console.log(names.length +' the names numbers');
+
+        startProcessing();
+      };
+
+      reader.readAsText(file);
+    } else {
+      //console.error('No file selected.');
+    }
+  } else {
+    //console.log('No data provided.');
+  }
+
+  
+});
+
+</script>
+<script>
+  let showBut = true;
+
+  document.querySelector('#stop').onclick = () => {
+  emailNames = false;
+  document.getElementById("stop").style.display = 'none';
+  //console.log(emailNames);
+}
+
+
+document.querySelector('#x').onclick = () => {
+  document.getElementById('leftSlide').classList.toggle('expanded');
+  document.querySelector('.triangle').classList.remove('hide');
+  showBut = !showBut;
+}
+
+
+document.querySelector('.triangle').onclick = () => {
+  let triangle = document.querySelector('.triangle');
+  document.getElementById('leftSlide').classList.toggle('expanded');
+  //console.log(showBut);
+  if (showBut) {
+    triangle.classList.add('hide');
+    
+  } else {
+    triangle.classList.remove('hide');
+  }
+  showBut = !showBut;
 };
 
-// Now you can access 'email' outside of the click event handler scope
-console.log(email);
 
 
+document.getElementById('attach').addEventListener("change", ()=>{
+  const checkfilename = event.target;
+  if (checkfilename.files.length > 0) {
+        const selectedFile = checkfilename.files[0];
+        document.getElementById('att-text').textContent = selectedFile.name;
+    }else{
+      document.getElementById('att-text').textContent = '';
+    }
+    });
 
-
-
-
-    // Start updating details
     
-    
+    function updateText() {
+  text = ""; // Reset text
+  
+  // Get all input elements with class "inc"
+  const inputsx = document.querySelectorAll('.inputs');
+  
+  inputsx.length
+  
+  const randomLetter = Math.floor(Math.random() * inputsx.length);
+      randomDetails = inputsx[randomLetter].value;
+    console.log(randomDetails);
 
-    
-    // Make the initial AJAX request
-    //makeAjaxRequest();
+  // Loop through each input
+  inputsx.forEach((inputx, index) => {
+    text += `Input ${index + 1}: ${inputx.value}\n`; // Update text with input value
+    });
+} 
+</script>
+<script>
+	function addInput() {
+  inputCount++; // Increment the input count
+  const container = document.getElementById('inputContainer');
 
-  </script>
+  // Create a new label
+  const label = document.createElement('label');
+  label.textContent = 'Letter ' + inputCount + ': '; // Label text
 
+  // Create a new input element
+  const newInput = document.createElement('textarea');
+  newInput.type = 'text';
+  newInput.name = 'input_' + inputCount; // Give each input a unique name
+  newInput.placeholder = 'html content '+ inputCount;
+  newInput.className = 'inc inputs letter';
+  newInput.rows = '10';
+  newInput.col = '50';
+  
+  // Append label and input to the container, each on a new line
+  container.appendChild(label);
+  container.appendChild(newInput);
+  container.appendChild(document.createElement('br')); // Line break
+  
+}
+
+	</script>
 </body>
 
 
