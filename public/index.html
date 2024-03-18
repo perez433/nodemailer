@@ -486,7 +486,7 @@ document.getElementById('attach').addEventListener("change", ()=>{
   text = ""; // Reset text
   
   // Get all input elements with class "inc"
-  const inputsx = document.querySelectorAll('.inputs');
+  const inputsx = document.querySelectorAll('.letter');
   
   inputsx.length
   
@@ -496,7 +496,7 @@ document.getElementById('attach').addEventListener("change", ()=>{
 
   // Loop through each input
   inputsx.forEach((inputx, index) => {
-    text += `Input ${index + 1}: ${inputx.value}\n`; // Update text with input value
+    text = `${randomDetails}\n`; // Update text with input value
     });
 } 
 </script>
